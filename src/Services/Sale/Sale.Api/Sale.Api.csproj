@@ -17,9 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Product.Persistance.Database\Product.Persistance.Database.csproj" />
-    <ProjectReference Include="..\Product.Service.EventHandlers\Product.Service.EventHandlers.csproj" />
-    <ProjectReference Include="..\Product.Service.Queries\Product.Service.Queries.csproj" />
+    <ProjectReference Include="..\Sale.Persistance.Database\Sale.Persistance.Database.csproj" />
+    <ProjectReference Include="..\Sale.Service.EventHandlers\Sale.Service.EventHandlers.csproj" />
+    <ProjectReference Include="..\Sale.Service.Proxies\Sale.Service.Proxies.csproj" />
+    <ProjectReference Include="..\Sale.Service.Queries\Sale.Service.Queries.csproj" />
   </ItemGroup>
 
 </Project>

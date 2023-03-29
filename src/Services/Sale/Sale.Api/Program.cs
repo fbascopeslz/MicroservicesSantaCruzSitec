@@ -1,8 +1,10 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Product.Persistance.Database;
-using Product.Service.Queries;
-using Product.Service.Queries.Interfaces;
+using Sale.Persistance.Database;
+using Sale.Service.Proxies;
+using Sale.Service.Proxies.Product;
+using Sale.Service.Proxies.Product.Interfaces;
+using Sale.Service.Queries;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,13 +16,19 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(opts =>
     opts.UseSqlServer(
         connectionString,
-        x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Product")
+        x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Sale")
         )
 );
 
-builder.Services.AddMediatR(Assembly.Load("Product.Service.EventHandlers"));
+builder.Services.Configure<ApiUrls>(
+    opts => builder.Configuration.GetSection("ApiUrls").Bind(opts)
+    );
 
-builder.Services.AddTransient<IProductQueryService, ProductQueryService>();
+builder.Services.AddHttpClient<IProductProxy, ProductProxy>();
+
+builder.Services.AddMediatR(Assembly.Load("Sale.Service.EventHandlers"));
+
+builder.Services.AddTransient<ISaleQueryService, SaleQueryService>();
 
 
 
