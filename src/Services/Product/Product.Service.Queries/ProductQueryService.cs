@@ -23,5 +23,12 @@ namespace Product.Service.Queries
 
             return collection.MapTo<List<ProductDto>>();            
         }
+
+        public async Task<ProductDto> GetById(int id)
+        {
+            var collection = await _applicationDbContext.Products.SingleAsync(x => x.ProductId == id);
+
+            return collection.MapTo<ProductDto>();
+        }
     }
 }

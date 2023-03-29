@@ -1,10 +1,7 @@
-﻿using MediatR;
-
-namespace Product.Service.EventHandlers.Commands
+﻿namespace Api.Gateway.Models.Product.Commands
 {
-    public class ProductCreateCommand : INotification
-    {
-        //public int ProductId { get; set; }
+    public class ProductUpdateCommand
+    {        
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

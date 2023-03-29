@@ -11,7 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Api.Gateway.Proxies\Api.Gateway.Proxies.csproj" />
+    <Reference Include="Api.Gateway.Models">
+      <HintPath>Proxies\Api.Gateway.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Api.Gateway.WebClient.Proxy">
+      <HintPath>Proxies\Api.Gateway.WebClient.Proxy.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

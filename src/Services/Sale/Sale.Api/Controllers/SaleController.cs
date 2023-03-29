@@ -8,14 +8,12 @@ namespace Sale.Api.Controllers
     [ApiController]
     [Route("sales")]
     public class SaleController : ControllerBase
-    {
-        private readonly ILogger<DefaultController> _logger;
+    {        
         private readonly ISaleQueryService _saleQueryService;
         private readonly IMediator _mediator;
 
-        public SaleController(ILogger<DefaultController> logger, ISaleQueryService saleQueryService, IMediator mediator)
-        {
-            _logger = logger;
+        public SaleController(ISaleQueryService saleQueryService, IMediator mediator)
+        {           
             _saleQueryService = saleQueryService;
             _mediator = mediator;
         }
@@ -29,6 +27,18 @@ namespace Sale.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SaleCreateCommand command)
         {
+            await _mediator.Publish(command);
+            return Ok();
+        }
+
+        [HttpPut("changeSaleStatusDelivered/{id}")]
+        public async Task<IActionResult> ChangeSaleStatusDelivered(int id)
+        {
+            ChangeSaleStatusDeliveredCommand command = new ChangeSaleStatusDeliveredCommand()
+            {
+                SaleId = id
+            };
+
             await _mediator.Publish(command);
             return Ok();
         }

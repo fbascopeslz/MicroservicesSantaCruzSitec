@@ -1,14 +1,13 @@
-using Api.Gateway.Proxies;
-using Api.Gateway.Proxies.Interfaces;
+using Api.Gateway.WebClient.Proxy;
+using Api.Gateway.WebClient.Proxy.Config;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 
-builder.Services.Configure<ApiUrls>(
-    opts => builder.Configuration.GetSection("ApiUrls").Bind(opts)
-    );
+builder.Services.AddSingleton(new ApiGatewayUrl(builder.Configuration.GetValue<string>("ApiGatewayUrl")));
 
 builder.Services.AddHttpClient<IProductProxy, ProductProxy>();
 

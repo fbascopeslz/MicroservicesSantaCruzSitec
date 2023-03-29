@@ -27,9 +27,34 @@ namespace Product.Api.Controllers
             return await _productQueryService.GetAllAsync();
         }
 
+        [HttpGet("{id}")]
+        public async Task<ProductDto> GetById(int id)
+        {
+            return await _productQueryService.GetById(id);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(ProductCreateCommand command)
         {            
+            await _mediator.Publish(command);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, ProductUpdateCommand command)
+        {
+            command.ProductId = id;
+            await _mediator.Publish(command);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            ProductDeleteCommand command = new ProductDeleteCommand()
+            {
+                ProductId = id
+            };
             await _mediator.Publish(command);
             return Ok();
         }

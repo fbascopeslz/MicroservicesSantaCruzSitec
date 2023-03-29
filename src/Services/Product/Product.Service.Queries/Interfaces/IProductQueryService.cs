@@ -1,14 +1,10 @@
 ﻿using Product.Service.Queries.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Product.Service.Queries.Interfaces
 {
     public interface IProductQueryService
     {
         public Task<List<ProductDto>> GetAllAsync();
+        public Task<ProductDto> GetById(int id);        
     }
 }

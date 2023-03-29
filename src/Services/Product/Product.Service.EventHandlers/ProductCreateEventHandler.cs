@@ -21,7 +21,8 @@ namespace Product.Service.EventHandlers
             {
                 Name = command.Name,
                 Description = command.Description,
-                Price = command.Price
+                Price = command.Price,
+                Stock = command.Stock,
             };
 
             await _applicationDbContext.AddAsync(product);
