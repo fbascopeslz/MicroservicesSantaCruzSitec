@@ -9,7 +9,7 @@ namespace Product.Api.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Running...";
+            return "Product Microservice is running...";
         }
     }
 }

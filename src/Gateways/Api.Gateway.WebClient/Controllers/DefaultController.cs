@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Sale.Api.Controllers
+namespace Api.Gateway.WebClient.Controllers
 {
     [ApiController]
     [Route("/")]
     public class DefaultController : ControllerBase
-    {        
+    {                
         [HttpGet]
         public string Get()
         {
-            return "Sale Microservice is running...";
+            return "Gateway service is running...";
         }
     }
 }
