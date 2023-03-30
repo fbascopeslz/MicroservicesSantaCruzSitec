@@ -38,8 +38,9 @@ namespace Product.Persistance.Database.Migrations
                 columns: new[] { "ProductId", "Description", "Name", "Price", "Stock" },
                 values: new object[,]
                 {
-                    { 1, "Description", "Product1", 12.94m, 5 },
-                    { 2, "Description", "Product2", 23.47m, 12 }
+                    { 1, "Descripcion Producto 1", "Producto 1", 13.5m, 5 },
+                    { 2, "Descripcion Producto 2", "Producto 2", 24m, 16 },
+                    { 3, "Descripcion Producto 3", "Producto 3", 66m, 8 }
                 });
         }
 

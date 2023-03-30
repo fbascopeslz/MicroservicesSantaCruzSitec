@@ -11,7 +11,7 @@ using Product.Persistance.Database;
 namespace Product.Persistance.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230327235345_Initialize")]
+    [Migration("20230330021614_Initialize")]
     partial class Initialize
     {
         /// <inheritdoc />
@@ -57,18 +57,26 @@ namespace Product.Persistance.Database.Migrations
                         new
                         {
                             ProductId = 1,
-                            Description = "Description",
-                            Name = "Product1",
-                            Price = 12.94m,
+                            Description = "Descripcion Producto 1",
+                            Name = "Producto 1",
+                            Price = 13.5m,
                             Stock = 5
                         },
                         new
                         {
                             ProductId = 2,
-                            Description = "Description",
-                            Name = "Product2",
-                            Price = 23.47m,
-                            Stock = 12
+                            Description = "Descripcion Producto 2",
+                            Name = "Producto 2",
+                            Price = 24m,
+                            Stock = 16
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            Description = "Descripcion Producto 3",
+                            Name = "Producto 3",
+                            Price = 66m,
+                            Stock = 8
                         });
                 });
 #pragma warning restore 612, 618

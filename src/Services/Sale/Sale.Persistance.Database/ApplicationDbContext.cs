@@ -30,12 +30,7 @@ namespace Sale.Persistance.Database
 
         private static void Seed(ModelBuilder modelBuilder)
         {
-            Domain.Sale sale1 = new Domain.Sale()
-            {
-                SaleId = 1,                 
-            };
-
-            modelBuilder.Entity<Domain.Sale>().HasData(sale1);
+            
         }
     }
 }

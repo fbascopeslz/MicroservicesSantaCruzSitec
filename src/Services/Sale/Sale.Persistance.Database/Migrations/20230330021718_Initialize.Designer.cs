@@ -12,7 +12,7 @@ using Sale.Persistance.Database;
 namespace Sale.Persistance.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230328195900_Initialize")]
+    [Migration("20230330021718_Initialize")]
     partial class Initialize
     {
         /// <inheritdoc />

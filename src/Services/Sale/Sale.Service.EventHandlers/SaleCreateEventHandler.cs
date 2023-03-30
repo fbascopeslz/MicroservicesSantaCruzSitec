@@ -12,6 +12,8 @@ namespace Sale.Service.EventHandlers
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly IProductProxy _productProxy;
 
+        private const decimal IVA = 0.13m;
+
         public SaleCreateEventHandler(ApplicationDbContext applicationDbContext, IProductProxy productProxy)
         {
             _applicationDbContext = applicationDbContext;
@@ -59,10 +61,11 @@ namespace Sale.Service.EventHandlers
 
         private void PrepareHeader(Domain.Sale sale, SaleCreateCommand command)
         {            
-            sale.Status = Common.Enums.SaleStatus.Pending;                        
+            sale.Status = SaleStatus.Pending;                        
             sale.Date = DateTime.UtcNow;
             
-            sale.Total = sale.Items.Sum(x => x.Total);
+            decimal totalWithoutIVA = sale.Items.Sum(x => x.Total);
+            sale.Total = totalWithoutIVA + (totalWithoutIVA * IVA);
         }
 
         private async Task UpdateStockAsync(SaleCreateCommand command) 
