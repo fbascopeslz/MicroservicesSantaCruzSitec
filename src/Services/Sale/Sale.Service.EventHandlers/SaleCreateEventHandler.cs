@@ -30,7 +30,7 @@ namespace Sale.Service.EventHandlers
 
                     PrepareDetail(sale, command);
 
-                    PrepareHeader(sale, command);
+                    PrepareHeader(sale);
 
                     await _applicationDbContext.AddAsync(sale, cancellationToken);
 
@@ -59,7 +59,7 @@ namespace Sale.Service.EventHandlers
             }).ToList();
         }
 
-        private void PrepareHeader(Domain.Sale sale, SaleCreateCommand command)
+        private void PrepareHeader(Domain.Sale sale)
         {            
             sale.Status = SaleStatus.Pending;                        
             sale.Date = DateTime.UtcNow;

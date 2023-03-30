@@ -9,7 +9,6 @@ namespace Api.Gateway.WebClient.Proxy
         public Task<ProductDto> GetById(int id);
         public Task Create(ProductCreateCommand command);
         public Task Update(int id, ProductUpdateCommand command);
-        public Task Delete(int id);
-        //public Task UpdateStockAsync(ProductUpdateStockCommand command);
+        public Task Delete(int id);        
     }
 }

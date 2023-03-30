@@ -1,12 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
 using Sale.Service.Proxies.Product.Commands;
 using Sale.Service.Proxies.Product.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Sale.Service.Proxies.Product
 {

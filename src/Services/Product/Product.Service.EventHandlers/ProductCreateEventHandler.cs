@@ -1,8 +1,6 @@
 ﻿using MediatR;
-using Product.Domain;
 using Product.Persistance.Database;
 using Product.Service.EventHandlers.Commands;
-using System.Threading;
 
 namespace Product.Service.EventHandlers
 {

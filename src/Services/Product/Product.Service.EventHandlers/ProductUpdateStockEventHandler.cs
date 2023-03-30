@@ -26,12 +26,7 @@ namespace Product.Service.EventHandlers
                 var product = products.SingleOrDefault(x => x.ProductId == item.ProductId);
 
                 if (item.Action == ProductStockAction.Substract)
-                {
-                    //if (product == null || item.Stock > product.Stock)
-                    //{                        
-                    //    //throw new ProductUpdateStockCommandException($"Product {entry.ProductId} - doens't have enough stock");
-                    //}
-
+                {                    
                     if (product != null && product.Stock >= item.Stock )
                     {
                         product.Stock -= item.Stock;
